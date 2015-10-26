@@ -1,12 +1,12 @@
 var TPStandard = RM.Model.extend({
 
     defaults: {
-        objectiveID : null,
-        oindex : null,
-        std : null,
-        categoryID :  null,
-        shortDescription : null,
-        type : null
+        objectiveID : Number.value(null),
+        oindex : Number.value(null),
+        std : String.value(null),
+        categoryID :  Number.value(null),
+        shortDescription : String.value(null),
+        type : String.value(null)
     }
 
 });

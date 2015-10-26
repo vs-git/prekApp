@@ -3,14 +3,8 @@ var TestPrepReportResponse = RM.Model.extend({
         //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
         //console.log( this.attributes.tpStandards);
 
-        if(this.attributes.tpStandards.length > 0)
-        {
-            console.log( this.attributes.tpStandards[0] instanceof TPStandard);
-            console.log( this.attributes.tpStandards[0].attributes );
-            console.log( this.attributes.tpStandards[0]  );
-        }
-        //console.log( this.attributes.tpStandards.first() instanceof TPStandard);
-        //console.log( this.attributes.tpStandards.first().attributes );
+        console.log( this.attributes.tpStandards.first() instanceof TPStandard);
+        console.log( this.attributes.tpStandards.first().attributes );
     },
 
     defaults : {
@@ -28,7 +22,7 @@ var TestPrepReportResponse = RM.Model.extend({
         categories : new Map(),
 
         /** @type {Array} List<TPStandard> */
-        tpStandards : []//TPStandard.Collection
+        tpStandards : TPStandard.Collection
 
     },
 
