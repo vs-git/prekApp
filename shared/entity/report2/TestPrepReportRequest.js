@@ -1,6 +1,8 @@
 var TestPrepReportRequest = RM.Model.extend({
 
-    url : '/report/buildTestPrepReport', //servisename  - only lower case!!!!!
+    url : function(){
+        return '/report/buildTestPrepReport'; //servisename  - only lower case!!!!!
+    },
 
     defaults : {
         /** @type {Number}*/

@@ -1,5 +1,9 @@
 var UserOnline = RM.Model.extend({
-    url : '/systemservice/getPopulation', //servisename  - only lower case!!!!!
+
+    /** @type {function():String} */
+    url : function(){
+        return '/systemservice/getPopulation'; //servisename  - only lower case!!!!!
+    },
 
     initialize: function(){
         //Object.preventExtensions(this.attributes);

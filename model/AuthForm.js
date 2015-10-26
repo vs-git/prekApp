@@ -4,8 +4,10 @@
 var AuthForm = RM.Model.extend(
     /** @lends RM.Model */
     {
-        /** @type {String} */
-        url : '/um/loginHTTP',//loginHTTP
+        /** @type {function():String} */
+        url : function(){
+            return '/um/loginHTTP'; //servisename  - only lower case!!!!!
+        },
 
         /** @type {function():boolean} */
         isNew : function () {
