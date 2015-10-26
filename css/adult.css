@@ -1,0 +1,54 @@
+html, body {
+    height: 100%;
+}
+
+#error {
+    display:none; background-color: #ddeeff;
+}
+
+#header {
+    background-color: lightpink;
+    width: 100%;
+    height: 30px;
+
+}
+
+.labelLogo {
+    width: 200px;
+    height: 30px;
+    float:left;
+}
+
+.sheetStickers > div {
+    background-color: lightgray;
+    border-right: 1px solid lightpink;
+    width: 200px;
+    height: 30px;
+    float:left;
+}
+
+.sheetStickers > div.active {
+    background-color: #ffffff;
+}
+
+#sheets {
+    width: 100%;
+    height: 100%;
+}
+#sheets > div {
+    border: 1px solid darkgreen;
+    width: inherit;
+    height: inherit;
+}
+
+.menu {
+    width: 200px;
+    height: 30px;
+    float:left;
+}
+
+.likeA {
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
