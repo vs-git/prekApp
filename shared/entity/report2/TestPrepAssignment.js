@@ -3,13 +3,13 @@ var TestPrepAssignment = RM.Model.extend({
 
     defaults : {
         /** @type {Number}*/
-        assignmentType : null,
+        assignmentType : Number.value(null),
 
         /** @type {Number}*/
-        assignmentID : null,
+        assignmentID : Number.value(null),
 
         /**
          * @type {Number} only for smarter solving lessons assignment type: CurriculumTypes.SBRC */
-        remainedLessons : null
+        remainedLessons : Number.value(null)
     }
 });

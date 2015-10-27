@@ -16,10 +16,40 @@ var AuthFormView = RM.View.extend({
         "click button" : "buttonListener"
     },
     buttonListener : function(){
-        this.model.set({
-            passwordSrc: this.$el.find('[name=password]').val()
+        var self = this;
+        /*
+        var sss =   this.model.set({
+            //passwordSrc: this.$el.find('[name=password]').val()
+            loginName: this.$el.find('[name=loginName]').val(),
+            password: md5(this.$el.find('[name=password]').val())
         });
+         */
 
+        if( !this.model.set({
+            loginName: this.$el.find('[name=loginName]').val(),
+            password: this.$el.find('[name=password]').val()
+        }, {validate:true})) {
+            return;
+        }
+        this.model.set('password', md5(this.model.get('password')));
+
+
+
+        //method, model, options
+        this.model.sync('patch', this.model, {
+            success : function(response, text, xhr){
+                var resp = response[0]; // May be changed!!!
+
+                if (0 == resp.code) {
+                    self.model.successLogin(resp);
+                } else {
+                    ErrorOutputFactory.getHandler(/*{type:"page"}*/).fire("Incorrect login or password");
+                }
+
+
+            }
+        });
+return;
         this.model.save({
             loginName: this.$el.find('[name=loginName]').val(),
             password: md5(this.model.get('passwordSrc'))

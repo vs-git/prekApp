@@ -1,8 +1,58 @@
-var User = RM.Model.extend({
+var User = {};
+//define static properties here, otherwise there are not accessible into method "defaults"
+
+User.STANDARD = 0;
+User.EXPERIMENTAL = 1;
+User.BOTH = 2;
+
+User.G3_NO_NAME = "No name";
+
+User = RM.Model.extend({
     initialize: function(){
-        Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
+        //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
+    },
+    defaults : {
+        //STANDARD : Number.value(0),
+        /*
+        public final static int STANDARD = 0;
+public final static int EXPERIMENTAL = 1;
+public final static int BOTH = 2;
+
+public final static String G3_NO_NAME = "No name";
+*/
+        userID : Number.value(null),
+        loginName : String.value(null),
+        md5hash : String.value(null),
+        firstName : String.value(null),
+        middleInitial : String.value(null),
+        lastName : String.value(null),
+        nickName : String.value(null),
+        prefix : String.value(null),
+        description : String.value(null),
+        roleId : Number.value(null),
+        active : Boolean.value(false),
+        timeZone : String.value("America/Chicago"),
+        guest : Boolean.value(false), //isGuest
+        system : Number.value(User.STANDARD), //STANDARD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        staar : Boolean.value(false),
+        sbrc : Boolean.value(false),
+        testContentCatalog : Number.value(0), //0 -nothing, 1 - staar, 2 - sbrc, 3 - both
+        idNumber : String.value(null),
+        debug : Boolean.value(false),
+        email : String.value(null),
+        demo : Boolean.value(null),//isDemo
+//protected boolean disabled; check whether the user is disabled via field "active", see UMController.getUserBy(...)
+        realClassesAccessible : Boolean.value(false), //isRealClassesAccessiblele
+        sse : Boolean.value(true),
+        individual : Boolean.value(false),//isIndividual
+
+        productTypes : Array.value([])
+
     }
-});
+}, User);
+
+
+//User.STANDARD = /** @type {Number} */ 'q';
 
 /*public class User implements Serializable, Cloneable
 {

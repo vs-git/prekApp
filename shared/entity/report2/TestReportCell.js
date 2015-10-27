@@ -1,29 +1,30 @@
+
 var TestReportCell = RM.Model.extend({
     initialize: function(){
         //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
 
-       // console.log( this.attributes );
+        // console.log( this.attributes );
     },
 
     defaults : {
 
         /** @type {Number}*/
-        solved : 0,
+        solved : Number.value(0),
 
         /** @type {Number}*/
-        given : 0,
+        given : Number.value(0),
 
         /** @type {Number}*/
-        ratio : -1,
+        ratio : Number.value(-1),
 
         /** @type {Number} -1 - unknown (hasn't yet been studied), 0 - diagnosed, 1 - passed, 2 - advanced  */
-        status : -1,
+        status : Number.value(-1),
 
         /** @type {Number} 0 - nothing, 1 - assigned, 2 - in progress */
-        assigned : 0,
+        assigned : Number.value(0),
 
         /** @type {Number}*/
-        objectiveID :0
+        objectiveID : Number.value(0)
 
     }
     /*
@@ -61,7 +62,7 @@ var TestReportCell = RM.Model.extend({
      static get ADVANCED() {
      return 2;
      }
-    */
+     */
 });
 
 /*

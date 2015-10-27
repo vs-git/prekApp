@@ -17,12 +17,12 @@ var AuthForm = RM.Model.extend(
         /** @type {Object} */
         defaults: {
             /** @type {String} */
-            loginName: '',
+            loginName: String.value(''),
             /** @type {String} */
-            password : '',
+            password : String.value('') /*,
 
-            /** @type {String} */
-            passwordSrc: ''
+           * @type {String}
+            passwordSrc: ''*/
         },
 
         /** @type {function():void} */
@@ -37,14 +37,14 @@ var AuthForm = RM.Model.extend(
             if (attrs.loginName == '') {
                 return "loginName cannot be empty";
             }
-            if (attrs.passwordSrc == '') {
+            if (attrs.password == '') {
                 return "password cannot be empty";
             }
         },
 
         /** @type {function():void} */
         successLogin : function(response){
-            RM.user = new User(response.data);
+            RM.user = new User();
             //(new AdultLayout).render();
 
             $.ajax({
@@ -65,7 +65,8 @@ var AuthForm = RM.Model.extend(
                     console.log( "loginFromSessionHTTP ERROR!!!" );
                     (new MainPageLayout).render();
                 }
-            })
+            });
+
         }
     }
 );

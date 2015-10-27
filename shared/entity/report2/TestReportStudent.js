@@ -1,29 +1,55 @@
 
+var TestReportStudent = RM.Model.extend({
+
+    defaults : {
+        /** @type {String}*/
+        firstName : String.value(null),
+
+        /** @type {String}*/
+        lastName : String.value(null),
+
+        /** @type {Number}*/
+        studentID : Number.value(null),
+
+        /** @type {Array} List<TestReportCell> */
+        cells : TestReportCell.Collection,
+
+        /** @type {Number} */
+        cmgAsnmtID : Number.value(null),
+
+        /** @type {Number}*/
+        testAsnmtID : Number.value(null),
+
+        /** @type {Number}*/
+        testPrepAsnmID : Number.value(null),
+
+        /** @type {Array} List<TestPrepAssignment>*/
+        amts : TestPrepAssignment.Collection
+
+    }
+});
+/*
 class TestReportStudent {
 
     constructor() {
 
-        /** @type {String}*/
-        this.firstName = null;
+        this.firstName = String.value(null);
 
-        /** @type {String}*/
-        this.lastName = null;
+        this.lastName = String.value(null);
 
-        /** @type {Number}*/
-        this.studentID = null;
+        this.studentID = Number.value(null);
 
-        /** @type {Array} List<TestReportCell> */
-        this.cells = [];
+        this.cells = TestReportCell.Collection;
 
-        /** @type {Number} */
-        this.cmgAsnmtID = null;
 
-        /** @type {Number}*/
-        this.testPrepAsnmID = null;
+        this.cmgAsnmtID = Number.value(null);
 
-        /** @type {Array} List<TestPrepAssignment>*/
-        this.testPrepAsnmID = [];
+        this.testAsnmtID = Number.value(null);
 
-        Object.preventExtensions(this);
+        this.testPrepAsnmID = Number.value(null);
+
+        this.amts = TestPrepAssignment.Collection;
+
+        //Object.preventExtensions(this);
     }
-}
+}*/

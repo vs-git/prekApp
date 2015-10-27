@@ -1,33 +1,31 @@
+
+
 var TestPrepReportResponse = RM.Model.extend({
     initialize: function(){
         //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
         //console.log( this.attributes.tpStandards);
 
-        console.log( this.attributes.tpStandards.first() instanceof TPStandard);
-        console.log( this.attributes.tpStandards.first().attributes );
+       // console.log( this.attributes.tpStandards.first() instanceof TPStandard);
+        console.log("instanceof TestReportCell");
+        console.log( this.attributes.students.first().cells.first() instanceof TestReportCell);
     },
 
     defaults : {
 
         /** @type {Array} List<TestReportStudent>*/
-        students : [],
+        students : TestReportStudent.Collection,
 
         /** @type {Array} number[]*/
-        total : [],
+        total : Number.Collection,
 
         /** @type {Number}*/
         reportID : -1,
 
         /** @type {Map} Map<Integer, String> */
-        categories : new Map(),
+        categories : Object,
 
         /** @type {Array} List<TPStandard> */
         tpStandards : TPStandard.Collection
-
-    },
-
-    bindData : function(data){
-        "use strict";
 
     }
 });
