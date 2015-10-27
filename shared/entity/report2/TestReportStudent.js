@@ -1,33 +1,5 @@
+// file moved to C:\work\nginx-1.3.6\html\prek\app\shared\entity\report2\TestPrepReportResponse.js
 
-var TestReportStudent = RM.Model.extend({
-
-    defaults : {
-        /** @type {String}*/
-        firstName : String.value(null),
-
-        /** @type {String}*/
-        lastName : String.value(null),
-
-        /** @type {Number}*/
-        studentID : Number.value(null),
-
-        /** @type {Array} List<TestReportCell> */
-        cells : TestReportCell.Collection,
-
-        /** @type {Number} */
-        cmgAsnmtID : Number.value(null),
-
-        /** @type {Number}*/
-        testAsnmtID : Number.value(null),
-
-        /** @type {Number}*/
-        testPrepAsnmID : Number.value(null),
-
-        /** @type {Array} List<TestPrepAssignment>*/
-        amts : TestPrepAssignment.Collection
-
-    }
-});
 /*
 class TestReportStudent {
 
