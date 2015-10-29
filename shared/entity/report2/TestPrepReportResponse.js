@@ -84,6 +84,7 @@ var TPStandard = RM.Model.extend({
 var TestPrepReportResponse = RM.Model.extend({
     initialize: function(){
 
+
         //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
         //console.log( this.attributes.tpStandards);
 

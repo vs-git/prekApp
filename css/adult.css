@@ -61,3 +61,8 @@ TD, TH {
     padding: 3px;
     border: 1px solid black;
 }
+
+.sortHeader {
+    background-color: lightgreen;
+    cursor: pointer;
+}

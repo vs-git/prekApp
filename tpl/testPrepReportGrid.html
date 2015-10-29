@@ -1,6 +1,7 @@
 
 <script id="testPrepReportGrid" type="text/template">
 
+
     <%
     var tpStandardsHash = {};
     for (var a=0, la = tpStandards.length; a < la; a++) {
@@ -8,83 +9,75 @@
     }
     %>
 
-    <table>
-
-
-
+    <table id="testPrepReportTable">
 
         <% if (students.length > 0) { %>
-
+        <thead>
         <tr>
-            <td rowspan="2">@</td>
-            <td rowspan="2">name</td>
-            <td rowspan="2">assignments</td>
-            <td rowspan="2">total</td>
+            <th rowspan="2" >@</th>
+            <th rowspan="2" class="sortHeader">name</th>
+            <th rowspan="2" class="sortHeader">assignments</th>
+            <th rowspan="2" class="sortHeader">total</th>
 
-            <% var n, ln = students[0].cells.length, cellHeader, tpStandard, categoryCnt = 0, prevCategory, tpStandardForCell, colspan; %>
+            <% var n, ln = students[0].cells.length, tpStandard, categoryCnt = 0, prevCategory, tpStandardForCell, colspan; %>
             <% for (n=1; n < ln; n++) { %>
-            <% cellHeader = students[0].cells[n]; %>
-            <% tpStandard = tpStandardsHash[cellHeader.objectiveID]; %>
 
-            <% if (!tpStandardForCell) { tpStandardForCell = tpStandard;  } %>
+                <% tpStandard = tpStandardsHash[students[0].cells[n].objectiveID]; %>
 
-            <% ++categoryCnt; %>
-            <% if (prevCategory === 0 || n === ln-1) { %>
-            <% colspan = (prevCategory === 0 ? categoryCnt-1 : categoryCnt+1) %>
-            <td colspan="<%=colspan %>">
+                <% if (!tpStandardForCell) { tpStandardForCell = tpStandard;  } %>
 
+                    <% ++categoryCnt; %>
+                    <% if (prevCategory === 0 || n === ln-1) { %>
+                    <% colspan = (prevCategory === 0 ? categoryCnt-1 : categoryCnt+1) %>
+                    <th colspan="<%=colspan %>" >
 
-                <%=(tpStandardForCell ? categories[tpStandardForCell.categoryID] : "???" ) %>
+                        <%=(tpStandardForCell ? categories[tpStandardForCell.categoryID] : "???" ) %>
 
-                <% categoryCnt = 1 %>
+                        <% categoryCnt = 1 %>
 
-                <% tpStandardForCell = null; %>
-            </td>
-            <% } %>
+                        <% tpStandardForCell = null; %>
+                    </th>
+                <% } %>
 
-
-
-            <% prevCategory = (tpStandard ? tpStandard.categoryID : 0 )  %>
+                <% prevCategory = (tpStandard ? tpStandard.categoryID : 0 )  %>
             <% } %>
         </tr>
 
         <tr>
 
-            <% for (var m=1, lm = students[0].cells.length, cellHeader; m < lm; m++) { %>
-            <% cellHeader = students[0].cells[m]; %>
-            <td>
-                <%=(tpStandardsHash[cellHeader.objectiveID] ? tpStandardsHash[cellHeader.objectiveID].std : "Total" )%>
-            </td>
+            <% for (var m=1, lm = students[0].cells.length; m < lm; m++) { %>
+                <th class="sortHeader">
+                    <%=(tpStandardsHash[students[0].cells[m].objectiveID] ? tpStandardsHash[students[0].cells[m].objectiveID].std : "Total" )%>
+                </th>
             <% } %>
         </tr>
 
-
         <tr>
-            <td> </td>
-            <td> class total </td>
-            <td> </td>
-            <td>
+            <th> </th>
+            <th> class total </th>
+            <th> </th>
+            <th>
                 <%=Math.round(percent(total[0]))+"%" %>
-            </td>
+            </th>
             <% for (var t=1, lt = total.length; t < lt; t++) { %>
-            <td>
+            <th>
                 <%=(total[t]===-1?"-":Math.round(percent(total[t]))+"%") %>
-            </td>
+            </th>
             <% } %>
         </tr>
         <% } %>
 
+        </thead>
+        <tbody>
 
         <% for (var i=0, li = students.length, student, cell; i < li; i++) { %>
         <% student = students[i] %>
         <tr>
-            <td>
-                <%=student.lastName %>
-            </td>
-            <td>  </td>
+            <td> </td>
             <td>
                 <%=student.lastName %> <%=student.firstName %>
             </td>
+            <td> </td>
             <td>
                 <%=Math.round(percent(student.cells[0].ratio))+"%" %>
             </td>
@@ -119,6 +112,7 @@
             <td>323</td>
             <td>324</td>
         </tr-->
+        </tbody>
     </table>
 
 </script>

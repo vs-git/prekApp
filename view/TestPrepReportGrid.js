@@ -17,6 +17,15 @@ var TestPrepReportGridView = RM.View.extend({
 
             self.$el.html(tpl(self.model.toJSON()));
 
+            $("#testPrepReportTable").tablesorter({
+                /*headers: {
+                    4 : { sorter: false },
+                    5 : { sorter: false }
+                }*/
+                selectorHeaders : ".sortHeader"
+            });
+
+
        /*
             Mustache.parse($(template).html());   // optional, speeds up future uses
 
