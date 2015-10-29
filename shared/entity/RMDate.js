@@ -52,6 +52,11 @@ class RMDate {
         this.minute = 59;
         return this;
     }
+
+    /** @type {function():String} */
+    toString() {
+        return this.year + "-" + this.month + "-" + this.day;
+    }
 }
 /*
 var RMDate = function(stringDate) {

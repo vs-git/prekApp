@@ -9,10 +9,10 @@ var TestPrepReportRequest = RM.Model.extend({
         classID : 30442, // get this from RM.user ???
 
         /** @type {RMDate}*/
-        startDate : null,
+        startDate : new RMDate(2015, 10, 20),
 
         /** @type {RMDate}*/
-        endDate : null,
+        endDate : new RMDate(2015, 11, 20),
 
         /** @type {Number}*/
         grade : 4,
@@ -30,7 +30,7 @@ var TestPrepReportRequest = RM.Model.extend({
         localSortAsc : false,
 
         /** @type {Number}*/
-        lastNDays : 7,
+        lastNDays : 0, //7
 
         /** @type {Number}*/
         lastSolvedProblemsNumber : 0

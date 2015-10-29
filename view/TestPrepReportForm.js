@@ -36,16 +36,16 @@ var TestPrepReportFormView = RM.View.extend({
             endDate : endDate.isEmpty() ? null : endDate.toEndOfDay(),         // if RMDate is backbone-model use toEndOfDay().attributes
             grade : this.$el.find('[name=grade]').val(),
             material : this.$el.find('[name=material]').val(),
-            isPrint : this.$el.find('[name=isPrint]').val(),
+            isPrint : false,//this.$el.find('[name=isPrint]').val(), //todo доделать!!!!!
             localSortColumn : this.$el.find('[name=localSortColumn]').val(),
-            localSortAsc : this.$el.find('[name=localSortAsc]').val(),
+            localSortAsc : false,//this.$el.find('[name=localSortAsc]').val(), //todo доделать!!!!!
             lastNDays : this.$el.find('[name=lastNDays]').val(),
             lastSolvedProblemsNumber : this.$el.find('[name=lastSolvedProblemsNumber]').val()
         }).sendData({
             data:JSON.stringify([this.model]),
             success : function(data, textStatus, jqXHR){
 
-                new TestPrepReportResponse(data[0]);
+                TestPrepReportResponseObj.set(data[0]);
                 //var coll = new TPStandardColl(data.tpStandards);
 
                 //console.log( coll );

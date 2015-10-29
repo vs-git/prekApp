@@ -1,15 +1,5 @@
-var TPStandard = RM.Model.extend({
+// moved to C:\work\nginx-1.3.6\html\prek\app\shared\entity\report2\TestPrepReportResponse.js
 
-    defaults: {
-        objectiveID : Number.value(null),
-        oindex : Number.value(null),
-        std : String.value(null),
-        categoryID :  Number.value(null),
-        shortDescription : String.value(null),
-        type : String.value(null)
-    }
-
-});
 /*
  var TPStandard = RM.Model.extend({
 

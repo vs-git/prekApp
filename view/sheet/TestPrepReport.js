@@ -1,10 +1,12 @@
-var TestPrepReportView = RM.View.extend({
+var TestPrepReportResponseObj = new TestPrepReportResponse;
+
+var TestPrepReportSheet = RM.View.extend({
 
     initialize: function() {
         //this.model.on('change', this.render, this);
     },
 
-    template: 'testPrepReport',
+    template: 'sheet/testPrepReport',
 
     render: function () {
         var self = this;
@@ -15,6 +17,7 @@ var TestPrepReportView = RM.View.extend({
             //self.$el.html(tpl(self.model.toJSON()));
 
             (new TestPrepReportFormView({model : new TestPrepReportRequest})).render();
+            (new TestPrepReportGridView({model : TestPrepReportResponseObj})).render();
         });
         return this;
     }

@@ -1,0 +1,124 @@
+
+<script id="testPrepReportGrid" type="text/template">
+
+    <%
+    var tpStandardsHash = {};
+    for (var a=0, la = tpStandards.length; a < la; a++) {
+        tpStandardsHash[tpStandards[a].objectiveID] = tpStandards[a];
+    }
+    %>
+
+    <table>
+
+
+
+
+        <% if (students.length > 0) { %>
+
+        <tr>
+            <td rowspan="2">@</td>
+            <td rowspan="2">name</td>
+            <td rowspan="2">assignments</td>
+            <td rowspan="2">total</td>
+
+            <% var n, ln = students[0].cells.length, cellHeader, tpStandard, categoryCnt = 0, prevCategory, tpStandardForCell, colspan; %>
+            <% for (n=1; n < ln; n++) { %>
+            <% cellHeader = students[0].cells[n]; %>
+            <% tpStandard = tpStandardsHash[cellHeader.objectiveID]; %>
+
+            <% if (!tpStandardForCell) { tpStandardForCell = tpStandard;  } %>
+
+            <% ++categoryCnt; %>
+            <% if (prevCategory === 0 || n === ln-1) { %>
+            <% colspan = (prevCategory === 0 ? categoryCnt-1 : categoryCnt+1) %>
+            <td colspan="<%=colspan %>">
+
+
+                <%=(tpStandardForCell ? categories[tpStandardForCell.categoryID] : "???" ) %>
+
+                <% categoryCnt = 1 %>
+
+                <% tpStandardForCell = null; %>
+            </td>
+            <% } %>
+
+
+
+            <% prevCategory = (tpStandard ? tpStandard.categoryID : 0 )  %>
+            <% } %>
+        </tr>
+
+        <tr>
+
+            <% for (var m=1, lm = students[0].cells.length, cellHeader; m < lm; m++) { %>
+            <% cellHeader = students[0].cells[m]; %>
+            <td>
+                <%=(tpStandardsHash[cellHeader.objectiveID] ? tpStandardsHash[cellHeader.objectiveID].std : "Total" )%>
+            </td>
+            <% } %>
+        </tr>
+
+
+        <tr>
+            <td> </td>
+            <td> class total </td>
+            <td> </td>
+            <td>
+                <%=Math.round(percent(total[0]))+"%" %>
+            </td>
+            <% for (var t=1, lt = total.length; t < lt; t++) { %>
+            <td>
+                <%=(total[t]===-1?"-":Math.round(percent(total[t]))+"%") %>
+            </td>
+            <% } %>
+        </tr>
+        <% } %>
+
+
+        <% for (var i=0, li = students.length, student, cell; i < li; i++) { %>
+        <% student = students[i] %>
+        <tr>
+            <td>
+                <%=student.lastName %>
+            </td>
+            <td>  </td>
+            <td>
+                <%=student.lastName %> <%=student.firstName %>
+            </td>
+            <td>
+                <%=Math.round(percent(student.cells[0].ratio))+"%" %>
+            </td>
+
+            <% for (var k=1, lk = student.cells.length; k < lk; k++) { %>
+            <% cell = student.cells[k] %>
+            <td>
+                <%=(cell.ratio===-1?"-":Math.round(percent(cell.ratio))+"%") %>
+            </td>
+            <% } %>
+        </tr>
+        <% } %>
+
+
+        <!--tr>
+            <td>221</td>
+            <td>222</td>
+            <td>223</td>
+            <td>224</td>
+            <td>221</td>
+            <td>222</td>
+            <td>223</td>
+            <td>224</td>
+        </tr>
+        <tr>
+            <td>321</td>
+            <td>322</td>
+            <td>323</td>
+            <td>324</td>
+            <td>321</td>
+            <td>322</td>
+            <td>323</td>
+            <td>324</td>
+        </tr-->
+    </table>
+
+</script>

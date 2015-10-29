@@ -39,6 +39,7 @@ TestReportCell = RM.Model.extend({
 
 var TestReportStudent = RM.Model.extend({
 
+
     defaults : {
         /** @type {String}*/
         firstName : String.value(null),
@@ -67,14 +68,28 @@ var TestReportStudent = RM.Model.extend({
     }
 });
 
+var TPStandard = RM.Model.extend({
+
+    defaults: {
+        objectiveID : Number.value(null),
+        oindex : Number.value(null),
+        std : String.value(null),
+        categoryID :  Number.value(null),
+        shortDescription : String.value(null),
+        type : String.value(null)
+    }
+
+});
+
 var TestPrepReportResponse = RM.Model.extend({
     initialize: function(){
+
         //Object.preventExtensions(this.attributes); // it works when initializing of the object is new User(response.data);
         //console.log( this.attributes.tpStandards);
 
        // console.log( this.attributes.tpStandards.first() instanceof TPStandard);
-        console.log("instanceof TestReportCell");
-        console.log( this.attributes.students.first().cells.first() instanceof TestReportCell);
+        //console.log("instanceof TestReportCell");
+        //console.log( this.attributes.students.first().cells.first() instanceof TestReportCell);
     },
 
     defaults : {

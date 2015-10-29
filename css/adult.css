@@ -52,3 +52,12 @@ html, body {
     text-decoration: underline;
     cursor: pointer;
 }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+TD, TH {
+    padding: 3px;
+    border: 1px solid black;
+}

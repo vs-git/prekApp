@@ -27,8 +27,9 @@ var AdultLayout = RM.View.extend({
 
             self.$el.html($($(template).html()));
 
-            new TestPrepReportView({model: new TestPrepReportResponse});
+            //self.$el.html((new TestPrepReportSheet()).render().$el);
 
+           // self.$el = (new TestPrepReportSheet()).render().$el;
             //self.addSheet();
             //self.addListeners();
             //(new AuthFormView({model: new AuthForm})).render();
@@ -41,11 +42,9 @@ var AdultLayout = RM.View.extend({
 
         //todo при вызове листа который уже есть, делать его и его ярлык активным а прочие hidden
 
-
-
         var sheetName;
         if (id == 'testPrepReport') {
-            sheetName = TestPrepReportView;
+            sheetName = TestPrepReportSheet;
         }
 
         var $el = (new sheetName()).render().$el;
