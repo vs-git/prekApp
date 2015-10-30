@@ -2,22 +2,26 @@ var AdultLayout = RM.View.extend({
 
     template: 'layout/adult',
 
-    tplNodes: [],
 
     el : 'body',
 
     /**
+     *
+
+     tplNodes: [],
+
      * @type Function
      * @param {String} id
      * @param {Boolean} wrap Return as jQuery object
      * @return {Object} (Element)
-     */
+     * todo: move to TplManager (?)
+
     getTplNodeById : function(id, wrap){
         var node = _.filter(this.tplNodes, function(node){
-            return node.getAttribute("id") == id;
+            return node.getAttribute("id") == id.replace(/\W/g, "");
         }).shift();
         return wrap ? $(node) : node;
-    },
+    },*/
 
     render: function () {
         var self = this;
@@ -38,38 +42,13 @@ var AdultLayout = RM.View.extend({
         return this;
     },
 
-    addSheet : function(id) {
-
-        //todo при вызове листа который уже есть, делать его и его ярлык активным а прочие hidden
-
-        var sheetName;
-        if (id == 'testPrepReport') {
-            sheetName = TestPrepReportSheet;
-        }
-
-        var $el = (new sheetName()).render().$el;
-        $el.attr("id", id);
-
-        $("#header").children(".sheetStickers").append(this.getTplNodeById("sheetStickerItem", true).html());
-        $("#sheets").append($el);
-
-    },
-
     events : {
         'click .menu div' : 'addMenuListener'
     },
 
     addMenuListener : function(e){
-        this.addSheet($(e.target).attr('id'));
+        RM.SheetManager.get( $(e.target).attr('id'));
     }
 
-
-     /*
-    addListeners : function() {
-        var self = this;
-        $(".menu").on('click', 'div', function(e){
-            self.addSheet($(e.target).attr('id'));
-        });
-
-    }*/
 });
+

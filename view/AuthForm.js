@@ -17,13 +17,6 @@ var AuthFormView = RM.View.extend({
     },
     buttonListener : function(){
         var self = this;
-        /*
-        var sss =   this.model.set({
-            //passwordSrc: this.$el.find('[name=password]').val()
-            loginName: this.$el.find('[name=loginName]').val(),
-            password: md5(this.$el.find('[name=password]').val())
-        });
-         */
 
         if( !this.model.set({
             loginName: this.$el.find('[name=loginName]').val(),
@@ -32,8 +25,6 @@ var AuthFormView = RM.View.extend({
             return;
         }
         this.model.set('password', md5(this.model.get('password')));
-
-
 
         //method, model, options
         this.model.sync('patch', this.model, {
@@ -45,27 +36,25 @@ var AuthFormView = RM.View.extend({
                 } else {
                     ErrorOutputFactory.getHandler(/*{type:"page"}*/).fire("Incorrect login or password");
                 }
-
-
             }
         });
-return;
+/*
         this.model.save({
             loginName: this.$el.find('[name=loginName]').val(),
             password: md5(this.model.get('passwordSrc'))
         },{
             patch: true,
-            success : function(model, response/*, options*/){
+            success : function(model, response, options){
                 var resp = response[0]; // May be changed!!!
 
                 if (10001 == resp.code) {
-                    ErrorOutputFactory.getHandler(/*{type:"page"}*/).fire("Incorrect login or password");
+                    ErrorOutputFactory.getHandler().fire("Incorrect login or password");
                 } else {
                     model.successLogin(resp);
                 }
 
             }
         });
-
+*/
     }
 });

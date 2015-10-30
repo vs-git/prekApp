@@ -54,7 +54,7 @@ var AuthForm = RM.Model.extend(
                 async : false,
                 cache : false,
                 success: function (data, textStatus) {
-                    console.log( textStatus );
+                    //console.log( 'loginFromSessionHTTP success' );
 
                     if (data !== "")
                         (new AdultLayout).render();
