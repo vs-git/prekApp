@@ -29,7 +29,7 @@ var AuthFormView = RM.View.extend({
         //method, model, options
         this.model.sync('patch', this.model, {
             success : function(response, text, xhr){
-                var resp = response[0]; // May be changed!!!
+                var resp = response; // May be changed!!!
 
                 if (0 == resp.code) {
                     self.model.successLogin(resp);

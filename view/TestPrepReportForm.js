@@ -45,7 +45,7 @@ var TestPrepReportFormView = RM.View.extend({
             data:JSON.stringify([this.model]),
             success : function(data, textStatus, jqXHR){
 
-                TestPrepReportResponseObj.set(data[0]);
+                TestPrepReportResponseObj.set(data);
                 //var coll = new TPStandardColl(data.tpStandards);
 
                 //console.log( coll );
