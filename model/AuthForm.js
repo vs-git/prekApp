@@ -2,7 +2,7 @@
  * @class
  * */
 var AuthForm = RM.Model.extend(
-    /** @lends RM.Model */
+
     {
         /** @type {function():String} */
         url : function(){
@@ -45,28 +45,7 @@ var AuthForm = RM.Model.extend(
         /** @type {function():void} */
         successLogin : function(response){
             RM.user = new User();
-            //(new AdultLayout).render();
-
-            $.ajax({
-                method : "post",
-                url : RM.urlPrefix + "/um/loginFromSessionHTTP",
-                //data : [],
-                async : false,
-                cache : false,
-                success: function (data, textStatus) {
-                    //console.log( 'loginFromSessionHTTP success' );
-
-                    if (data !== "")
-                        (new AdultLayout).render();
-                    else
-                        (new MainPageLayout).render();
-                },
-                error : function(){
-                    console.log( "loginFromSessionHTTP ERROR!!!" );
-                    (new MainPageLayout).render();
-                }
-            });
-
+            loginFromSession();
         }
     }
 );
