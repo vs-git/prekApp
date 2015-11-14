@@ -5,7 +5,7 @@
     <%
     var tpStandardsHash = {};
     for (var a=0, la = tpStandards.length; a < la; a++) {
-        tpStandardsHash[tpStandards[a].objectiveID] = tpStandards[a];
+    tpStandardsHash[tpStandards[a].objectiveID] = tpStandards[a];
     }
     %>
 
@@ -22,33 +22,33 @@
             <% var n, ln = students[0].cells.length, tpStandard, categoryCnt = 0, prevCategory, tpStandardForCell, colspan; %>
             <% for (n=1; n < ln; n++) { %>
 
-                <% tpStandard = tpStandardsHash[students[0].cells[n].objectiveID]; %>
+            <% tpStandard = tpStandardsHash[students[0].cells[n].objectiveID]; %>
 
-                <% if (!tpStandardForCell) { tpStandardForCell = tpStandard;  } %>
+            <% if (!tpStandardForCell) { tpStandardForCell = tpStandard;  } %>
 
-                    <% ++categoryCnt; %>
-                    <% if (prevCategory === 0 || n === ln-1) { %>
-                    <% colspan = (prevCategory === 0 ? categoryCnt-1 : categoryCnt+1) %>
-                    <th colspan="<%=colspan %>" >
+            <% ++categoryCnt; %>
+            <% if (prevCategory === 0 || n === ln-1) { %>
+            <% colspan = (prevCategory === 0 ? categoryCnt-1 : categoryCnt+1) %>
+            <th colspan="<%=colspan %>" >
 
-                        <%=(tpStandardForCell ? categories[tpStandardForCell.categoryID] : "???" ) %>
+                <%=(tpStandardForCell ? categories[tpStandardForCell.categoryID] : "???" ) %>
 
-                        <% categoryCnt = 1 %>
+                <% categoryCnt = 1 %>
 
-                        <% tpStandardForCell = null; %>
-                    </th>
-                <% } %>
+                <% tpStandardForCell = null; %>
+            </th>
+            <% } %>
 
-                <% prevCategory = (tpStandard ? tpStandard.categoryID : 0 )  %>
+            <% prevCategory = (tpStandard ? tpStandard.categoryID : 0 )  %>
             <% } %>
         </tr>
 
         <tr>
 
             <% for (var m=1, lm = students[0].cells.length; m < lm; m++) { %>
-                <th class="sortHeader">
-                    <%=(tpStandardsHash[students[0].cells[m].objectiveID] ? tpStandardsHash[students[0].cells[m].objectiveID].std : "Total" )%>
-                </th>
+            <th class="sortHeader">
+                <%=(tpStandardsHash[students[0].cells[m].objectiveID] ? tpStandardsHash[students[0].cells[m].objectiveID].std : "Total" )%>
+            </th>
             <% } %>
         </tr>
 
