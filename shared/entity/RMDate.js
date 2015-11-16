@@ -32,7 +32,7 @@ class RMDate {
     /** @type {function():boolean} */
     isEmpty() {
         for (var prop in this) {
-            if(this[prop] !== null) { // in ES6 hasOwnProperty is not necessary
+            if(this.hasOwnProperty(prop) && this[prop] !== null) {
                 return false;
             }
         }

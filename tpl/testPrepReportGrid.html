@@ -79,12 +79,13 @@
             </td>
             <td> </td>
             <td>
-                <%=Math.round(percent(student.cells[0].ratio))+"%" %>
+                <%=(student.cells[0].ratio===-1?"-":Math.round(percent(student.cells[0].ratio))+"%") %>
             </td>
 
             <% for (var k=1, lk = student.cells.length; k < lk; k++) { %>
             <% cell = student.cells[k] %>
             <td>
+
                 <%=(cell.ratio===-1?"-":Math.round(percent(cell.ratio))+"%") %>
             </td>
             <% } %>

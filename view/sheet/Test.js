@@ -17,8 +17,8 @@ var TestSheet = RM.View.extend({
             //var tpl = _.template($(template).html());
             //self.$el.html(tpl(self.model.toJSON()));
 
-            events.trigger('sheetRendered', {view:self});
-
+            //events.trigger('sheetRendered', {view:self});
+            $('#sheets').append(self.$el);
         });
         return this;
     }
