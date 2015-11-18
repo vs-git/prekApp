@@ -39,14 +39,14 @@ class RMDate {
         return true;
     }
 
-    /** @type {function():this} */
+    /** @type {function():object} */
     toStartOfDay() {
         this.hour = 0;
         this.minute = 0;
         return this;
     }
 
-    /** @type {function():this} */
+    /** @type {function():object} */
     toEndOfDay() {
         this.hour = 23;
         this.minute = 59;

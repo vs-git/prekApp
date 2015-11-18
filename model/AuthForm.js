@@ -28,7 +28,7 @@ var AuthForm = RM.Model.extend(
         /** @type {function():void} */
         initialize: function(){
             this.on("invalid", function(model, error){
-                ErrorOutputFactory.getHandler(/*{type:"page"}*/).fire(error);
+                ErrOut.getHandler(/*{type:"page"}*/).fire(error);
             });
         },
 

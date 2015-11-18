@@ -12,11 +12,7 @@ var UserOnline = RM.Model.extend({
     },
 
     defaults: {
-
         left: '',
-
         right : ''
-
-
     }
 });

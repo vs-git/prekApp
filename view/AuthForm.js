@@ -34,7 +34,7 @@ var AuthFormView = RM.View.extend({
                 if (0 == resp.code) {
                     self.model.successLogin(resp);
                 } else {
-                    ErrorOutputFactory.getHandler(/*{type:"page"}*/).fire("Incorrect login or password");
+                    ErrOut.getHandler(/*{type:"page"}*/).fire("Incorrect login or password");
                 }
             }
         });
@@ -48,7 +48,7 @@ var AuthFormView = RM.View.extend({
                 var resp = response[0]; // May be changed!!!
 
                 if (10001 == resp.code) {
-                    ErrorOutputFactory.getHandler().fire("Incorrect login or password");
+                    ErrOut.getHandler().fire("Incorrect login or password");
                 } else {
                     model.successLogin(resp);
                 }
