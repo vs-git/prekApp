@@ -4,7 +4,7 @@ var MainPageLayout = RM.View.extend({
     template: 'layout/main',
 
     render: function () {
-        this.TplManager.get(this.template, function(template){
+        TplManager.get(this.template, function(template){
 
             $('body').html($($(template).html()));
 

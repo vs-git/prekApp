@@ -6,7 +6,7 @@ var TestPrepReportFormView = RM.View.extend({
 
     render: function () {
         var self = this;
-        this.TplManager.get(this.template, function(template){
+        TplManager.get(this.template, function(template){
             var tpl = _.template($(template).html());
             self.$el.html(tpl(self.model.toJSON()));
         });

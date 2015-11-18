@@ -14,7 +14,7 @@ var TestPrepReportSheet = RM.View.extend({
 
         var self = this;
         return new Promise(function(resolve, reject) {
-            self.TplManager.get(self.template, function (template) {
+            TplManager.get(self.template, function (template) {
 
                 self.$el.html($(template).html());
                 //var tpl = _.template($(template).html());

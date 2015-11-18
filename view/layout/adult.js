@@ -25,7 +25,7 @@ var AdultLayout = RM.View.extend({
 
     render: function () {
         var self = this;
-        this.TplManager.get(this.template, function(template){
+        TplManager.get(this.template, function(template){
 
             self.tplNodes = template;
 
@@ -47,7 +47,7 @@ var AdultLayout = RM.View.extend({
     },
 
     addMenuListener : function(e){
-        RM.SheetManager.get( $(e.target).attr('id'));
+        SheetManager.get( $(e.target).attr('id'));
     }
 
 });
