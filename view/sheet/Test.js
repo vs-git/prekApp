@@ -11,16 +11,18 @@ var TestSheet = RM.View.extend({
 
     render: function () {
         var self = this;
-        this.TplManager.get(this.template, function(template){
+        return new Promise(function(resolve, reject) {
+            self.TplManager.get(self.template, function (template) {
 
-            self.$el.html($(template).html());
-            //var tpl = _.template($(template).html());
-            //self.$el.html(tpl(self.model.toJSON()));
+                self.$el.html($(template).html());
+                //var tpl = _.template($(template).html());
+                //self.$el.html(tpl(self.model.toJSON()));
 
-            //events.trigger('sheetRendered', {view:self});
-            $('#sheets').append(self.$el);
+                //events.trigger('sheetRendered', {view:self});
+                //$('#sheets').append(self.$el);
+                resolve(self);
+            });
         });
-        return this;
     }
 
 });

@@ -11,23 +11,26 @@ var TestPrepReportSheet = RM.View.extend({
     template: 'sheet/report',
 
     render: function () {
+
         var self = this;
-        this.TplManager.get(this.template, function(template){
+        return new Promise(function(resolve, reject) {
+            self.TplManager.get(self.template, function (template) {
 
-            self.$el.html($(template).html());
-            //var tpl = _.template($(template).html());
-            //self.$el.html(tpl(self.model.toJSON()));
+                self.$el.html($(template).html());
+                //var tpl = _.template($(template).html());
+                //self.$el.html(tpl(self.model.toJSON()));
 
-            //events.trigger('sheetRendered', {view:self});
+                //events.trigger('sheetRendered', {view:self});
 
-            //todo м.б. имеет смысл сделать вью типа sheet и там сделать автовызов этих методов по завершению рендеринга шаблона
-            $('#sheets').append(self.$el);
-            self.renderChildren();
+                //$('#sheets').append(self.$el);
+
+                //self.renderChildren();
+                //self.renderChildren().then(resolve).catch(function(error){ErrOut.getHandler({type:'console'}).fire(error);});
+                resolve(self);
+            });
         });
-        return this;
     },
     renderChildren : function(){
-        console.log(  111);
         (new TestPrepReportFormView({model : new TestPrepReportRequest})).render();
         (new TestPrepReportGridView({model : TestPrepReportResponseObj})).render();
         return this;
